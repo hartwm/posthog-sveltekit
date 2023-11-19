@@ -3,13 +3,19 @@ lockfileVersion: 5.4
 specifiers:
   '@sveltejs/adapter-auto': ^2.0.0
   '@sveltejs/kit': ^1.27.4
+  posthog-js: ^1.91.1
   prettier: ^3.0.0
   prettier-plugin-svelte: ^3.0.0
   svelte: ^4.0.5
   svelte-check: ^3.6.0
   tslib: ^2.4.1
   typescript: ^5.0.0
+  uuid: ^9.0.1
   vite: ^4.4.2
+
+dependencies:
+  posthog-js: 1.91.1
+  uuid: 9.0.1
 
 devDependencies:
   '@sveltejs/adapter-auto': 2.1.1_@sveltejs+kit@1.27.6
@@ -567,6 +573,10 @@ packages:
       reusify: 1.0.4
     dev: true
 
+  /fflate/0.4.8:
+    resolution: {integrity: sha512-FJqqoDBR00Mdj9ppamLa/Y7vxm+PRmNWA67N846RvsoYVMKB4q3y/de5PA7gUmRMYK/8CMz2GDZQmCRN1wBcWA==}
+    dev: false
+
   /fill-range/7.0.1:
     resolution: {integrity: sha512-qOo9F+dMUmC2Lcb4BbVvnKJxTPjCm+RRpe4gDuGrzkL7mEVl/djYSu2OdQ2Pa302N4oqkSg9ir6jaLWJ2USVpQ==}
     engines: {node: '>=8'}
@@ -799,6 +809,12 @@ packages:
       picocolors: 1.0.0
       source-map-js: 1.0.2
     dev: true
+
+  /posthog-js/1.91.1:
+    resolution: {integrity: sha512-Pj4mqCT8p4JdEXOwdZ1lNFU4W8a+Uv7zZs3FIBvvFnnXcMak8Fr8ns6RTTdWo3UQqZGD7iuarYcwTYI8E5UHdA==}
+    dependencies:
+      fflate: 0.4.8
+    dev: false
 
   /prettier-plugin-svelte/3.1.0_k5a5cj6xdk6wc2xwppu6qpmeue:
     resolution: {integrity: sha512-96+AZxs2ESqIFA9j+o+DHqY+BsUglezfl553LQd6VOtTyJq5GPuBEb3ElxF2cerFzKlYKttlH/VcVmRNj5oc3A==}
@@ -1046,6 +1062,11 @@ packages:
     dependencies:
       '@fastify/busboy': 2.1.0
     dev: true
+
+  /uuid/9.0.1:
+    resolution: {integrity: sha512-b+1eJOlsR9K8HJpow9Ok3fiWOWSIcIzXodvv0rQjVoOVNpWMpxf1wZNpt4y9h10odCNrqnYp1OBzRktckBe3sA==}
+    hasBin: true
+    dev: false
 
   /vite/4.5.0:
     resolution: {integrity: sha512-ulr8rNLA6rkyFAlVWw2q5YJ91v098AFQ2R0PRFwPzREXOUJQPtFUG0t+/ZikhaOCDqFoDhN6/v8Sq0o4araFAw==}

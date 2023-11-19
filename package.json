@@ -22,5 +22,9 @@
 		"typescript": "^5.0.0",
 		"vite": "^4.4.2"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"posthog-js": "^1.91.1",
+		"uuid": "^9.0.1"
+	}
 }
