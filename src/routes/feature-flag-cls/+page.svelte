@@ -13,6 +13,10 @@
 	{#if $featureFlags.flagIsEnabled}
 		<div class="h-[50vh] w-full bg-blue-500">Flag is enabled</div>
 	{/if}
-</div>
 
-<div class="h-[50vh] w-full bg-green-500">Always present div</div>
+	{#if !$featureFlags.flagIsEnabled}
+		<div class="h-[50vh] w-full bg-orange-500">Flag is disabled</div>
+	{/if}
+
+	<div class="h-[50vh] w-full bg-green-500">Always present div</div>
+</div>
