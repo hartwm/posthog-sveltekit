@@ -2,8 +2,7 @@
 	import { browser } from '$app/environment';
 	import { page } from '$app/stores';
 	import { onMount } from 'svelte';
-	import postHog from '$lib/stores/posthog';
-	import { featureFlags } from '$lib/stores/postHogV3.js';
+	import { postHog, featureFlags } from '$lib/stores';
 	export let data;
 
 	let currentPath: string;
@@ -50,14 +49,20 @@
 	});
 </script>
 
-<div class="prose mx-auto my-8">
-	<div class="flex gap-6">
-		<a href="/">Home</a>
-		<a href="/feature-flag">Feature Flag</a>
-		<!-- <a href="/experiment">Experiment (A/B Test)</a> -->
-	</div>
+<div class="container mx-auto">
+	<div class="prose max-w-none mx-auto my-8 grid grid-cols-[300px_1fr]">
+		<div class="flex flex-col gap-6">
+			<a href="/">Home</a>
+			<a href="/feature-flag">Feature Flag</a>
+			<a href="/feature-flag-toggle">Feature Flag Toggle</a>
+			<a href="/feature-flag-cls">Content Layout Shift Test</a>
+			<a href="/experiment">Experiment (A/B Test)</a>
+			<a href="/experiment-server">Experiment Server (A/B Test)</a>
+			<a href="/experiment-server-inherit">Experiment Server Every Load</a>
+		</div>
 
-	<div class="p-8 bg-gray-100 rounded my-8">
-		<slot />
+		<div class="p-8 bg-white shadow rounded">
+			<slot />
+		</div>
 	</div>
 </div>

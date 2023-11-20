@@ -1,0 +1,1 @@
+This is component A

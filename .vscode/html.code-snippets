@@ -1,0 +1,6 @@
+{
+  "dump":{
+    "prefix":["pre", "dump"],
+    "body":["<div class=\"prose mx-auto\"> <pre> {JSON.stringify(\t$0, null, 2)}</pre></div>"]
+  }
+}

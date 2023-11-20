@@ -9,7 +9,6 @@ export const featureFlags = writable({})
 const createPostHogStore = () => {
   const { subscribe, update } = writable({
     initialized: false,
-    distinctID: '',
   });
 
   // Function to initialize PostHog
@@ -27,34 +26,38 @@ const createPostHogStore = () => {
             featureFlags
           },
           loaded: (phInstance) => {
-            update(state => ({ ...state, initialized: true, distinctID }));
+            update(state => ({ ...state, initialized: true }));
 
           }
         }
       );
-      console.log(get({ subscribe }).initialized)
       posthog.debug();
     }
   };
 
-  const capture = (eventName, properties = {}) => {
+  const capture = (eventName: string, properties = {}) => {
     if (get({ subscribe }).initialized) {
       posthog.capture(eventName, properties);
+      return
     }
+    init(undefined, undefined)
   };
 
   const reloadFeatureFlags = () => {
     if (get({ subscribe }).initialized) {
       posthog.reloadFeatureFlags();
+      return
     }
+    init(undefined, undefined)
   };
 
-  const getFeatureFlag = (flagKey) => {
+  const getFeatureFlag = (flagKey: string) => {
     if (get({ subscribe }).initialized) {
       const flagValue = posthog.getFeatureFlag(flagKey)
       featureFlags.update(flags => ({ ...flags, [flagKey]: flagValue }))
-      return flagValue
+      return
     }
+    init(undefined, undefined)
   };
 
   return {

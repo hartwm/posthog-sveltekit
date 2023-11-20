@@ -1,0 +1,9 @@
+{
+  "recommendations": [
+    "ardenivanov.svelte-intellisense",
+    "svelte.svelte-vscode",
+    "fivethree.vscode-svelte-snippets",
+    "alfnielsen.vsc-scaffolding",
+    "bradlc.vscode-tailwindcss"
+  ]
+}
