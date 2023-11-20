@@ -14,6 +14,6 @@
 	});
 </script>
 
-<h1>Experient (A/B Test) Decided on Server</h1>
+<h1>Experient (A/B Test) Decided on +page.server.ts</h1>
 <p>In this example we only get info from the server, no repaints.</p>
 <svelte:component this={components[variant]} />
