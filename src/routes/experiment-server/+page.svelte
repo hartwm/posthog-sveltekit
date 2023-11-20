@@ -14,6 +14,11 @@
 	});
 </script>
 
-<h1>Experient (A/B Test) Decided on Layout Server</h1>
-<p>In this example we only get info from the server when the project loads. No retesting. This can be beneficial for potentially saving money on serverless functions in a large scale project and dependent upon the nature of the experiment. A straightforward A/B experiment this should work well.</p>
+<h1>Experient (A/B Test) Decided on +layout.server.ts</h1>
+<p>
+	In this example we only get info from the server when the project loads. No retesting. This can be
+	beneficial for potentially saving money on serverless functions in a large scale project and
+	dependent upon the nature of the experiment. A straightforward A/B experiment this should work
+	well.
+</p>
 <svelte:component this={components[variant]} />

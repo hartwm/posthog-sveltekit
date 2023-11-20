@@ -58,7 +58,7 @@
 			<a href="/feature-flag-cls">Content Layout Shift Test</a>
 			<a href="/experiment">Experiment (A/B Test)</a>
 			<a href="/experiment-server">Experiment Server (A/B Test)</a>
-			<a href="/experiment-server-inherit">Experiment Server Every Load</a>
+			<a href="/experiment-server-inherit">Experiment Server Inherit</a>
 		</div>
 
 		<div class="p-8 bg-white shadow rounded">
