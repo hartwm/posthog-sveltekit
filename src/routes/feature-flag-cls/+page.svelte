@@ -7,8 +7,8 @@
 	});
 </script>
 
-<h1>Feature Flags - Content Layout Shift Test</h1>
-<p>This is to show no obvous page jump (CLS)</p>
+<h1>Feature Flags - Cumulative Layout Shift Test</h1>
+<p>This is to show no obvous page jump (CLS). See https://web.dev/articles/cls</p>
 <div>
 	{#if $featureFlags.flagIsEnabled}
 		<div class="h-[50vh] w-full bg-blue-500">Flag is enabled</div>

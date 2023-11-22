@@ -1,4 +1,5 @@
 // hooks.server.ts
+import type { Handle } from '@sveltejs/kit';
 import { v4 as uuidv4 } from 'uuid';
 import { PUBLIC_POSTHOG_KEY } from '$env/static/public';
 const client = 'unique_client_name'

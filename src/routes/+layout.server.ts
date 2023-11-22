@@ -6,7 +6,7 @@ export const load = (async ({ fetch, locals }) => {
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ userId: locals.userId })
+    body: JSON.stringify({ userId: locals.posthogId })
   }).then(r => r.json())
 
   return {
