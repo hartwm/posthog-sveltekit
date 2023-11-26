@@ -1,41 +1,19 @@
 # Demo
 [DEMO](https://posthog-sveltekit.vercel.app/)
 
-# create-svelte
+For those interested in experimenting with feature flags, here's some insight into integrating PostHog with SvelteKit, focusing on speed and minimizing Cumulative Layout Shift (CLS). No one appreciates a flickering webpage, particularly when it's evident that content is changing based on user data or sales strategies. For instance, I encountered a price change on a webpage after clicking an ad, which I suspect was based on my data or a sales tactic. This flickering can be off-putting, but I still value the advantages of reactive websites and client rendering.
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+I don't claim my approach is perfect, I'm open to comments and pull requests. My focus has been on A/B testing and flags for smaller marketing websites, not large corporate projects. After exploring various options like Split.io and LaunchDarkly, I settled on PostHog for its excellent freemium tier and clear dashboard analytics.  
 
-## Creating a project
+You can find a working example of flags and A/B testing in this repository.
 
-If you're seeing this, you've probably already done this step. Congrats!
+There are multiple methods to implement posthog, including using NodeJS SDK, JavaScript SDK, and API. I chose to use the PostHog API /decide route in conjunction with a Svelte API route during the initial page load. This method proved reasonably fast (~150ms) and involves a single server request before page loading.
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+The server then passes down the retrieved feature flags and local IDs. In the Svelte root layout file, these flags are set as a store, and we initialize a PostHog store, which starts the PostHog JavaScript SDK.
+We use an onMount function in the layout file to capture page view and page leave data, allowing us to utilize our featureFlags store to show or hide features as needed. To avoid flickering, I don't directly use postHog.getFeatureFlag but include it in the onMount to update the store and send a $feature_flag_called event to PostHog.
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+This approach aims to eliminate CLS and flickering while maintaining speed and reducing server load. It's versatile, and you can tailor it to your needs, such as running an API request on page load for critical functions. The method primarily uses getFeatureFlag, but it can be expanded to include other functions, as the PostHog JavaScript SDK can be initiated to use cookies for user information tracking.
 
-## Developing
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
 
-```bash
-npm run dev
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
